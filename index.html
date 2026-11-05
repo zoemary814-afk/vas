@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Escritório Veicular — portal editorial independente sobre o carro em dia</title>
-<meta name="description" content="Portal editorial independente sobre documentação, transferência, licenciamento e revisão. Publicação mantida por empresa privada, CNPJ 86.184.074/0018-99, com finalidade somente editorial e informativa.">
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="%23b3351f"/><circle cx="32" cy="32" r="23" fill="none" stroke="%23f2ecdf" stroke-width="2"/><text x="32" y="41" font-family="Georgia" font-size="26" fill="%23f2ecdf" text-anchor="middle" font-style="italic">EV</text></svg>'>
+<title>Portal Veículos em Dias — portal editorial independente sobre o carro em dia</title>
+<meta name="description" content="Portal editorial independente sobre documentação, transferência, licenciamento e revisão. Publicação mantida por empresa privada, CNPJ 47.220.506/0001-70, com finalidade somente editorial e informativa.">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="%23b3351f"/><circle cx="32" cy="32" r="23" fill="none" stroke="%23f2ecdf" stroke-width="2"/><text x="32" y="41" font-family="Georgia" font-size="26" fill="%23f2ecdf" text-anchor="middle" font-style="italic">PV</text></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="htt...ap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#f2ecdf; --paper-2:#eae2d0; --ink:#14201a; --ink-2:#1d2c23;
@@ -218,12 +218,14 @@ footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
 
 /* ============ AVISO COOKIES ============ */
 .aviso-chk{position:fixed;opacity:0;pointer-events:none}
-.aviso{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:80;width:min(680px,92vw);background:var(--ink);color:var(--faint-dark);border:1px solid var(--line-dark);border-radius:12px;padding:24px 28px;display:flex;gap:24px;align-items:center;box-shadow:0 30px 60px -20px rgba(20,32,26,.5);transition:opacity .5s,transform .5s}
+.aviso{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:80;width:min(680px,92vw);background:var(--ink);color:var(--faint-dark);border:1px solid var(--line-dark);border-radius:12px;padding:26px 56px 24px 28px;display:flex;gap:24px;align-items:center;box-shadow:0 30px 60px -20px rgba(20,32,26,.5);transition:opacity .5s,transform .5s}
 .aviso p{font-size:13px;line-height:1.7}
 .aviso a{color:var(--paper);border-bottom:1px solid var(--red-soft);text-decoration:none}
 .aviso label{flex:none;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--paper);border:1px solid var(--line-dark);border-radius:999px;padding:12px 22px;cursor:pointer;transition:background-color .3s,color .3s}
 .aviso label:hover{background:var(--red);border-color:var(--red)}
 .aviso-chk:checked~.aviso{opacity:0;transform:translateX(-50%) translateY(20px);pointer-events:none}
+.aviso strong{color:var(--paper);font-weight:500}
+.aviso .x{position:absolute;top:12px;right:12px;width:34px;height:34px;padding:0;display:grid;place-items:center;font-family:var(--sans);font-size:20px;line-height:1;letter-spacing:0}
 @media(max-width:600px){.aviso{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
@@ -233,23 +235,23 @@ footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
 <div class="faixa" data-testid="aviso-legal-topo">
   <div class="wrap">
     <span class="sinal" aria-hidden="true">!</span>
-    <p><strong>CNPJ 86.184.074/0018-99.</strong> Publicação mantida por empresa privada de comércio e indústria, com finalidade somente editorial e informativa. Nada neste portal emite documento, cobra taxa, vende peça ou equipamento, nem intermedeia negócio com terceiros.</p>
+    <p><strong>CNPJ 47.220.506/0001-70.</strong> Publicação mantida por empresa privada do comércio varejista de móveis, com finalidade somente editorial e informativa. Nada neste portal emite documento, cobra taxa, vende peça ou equipamento, nem intermedeia negócio com terceiros.</p>
   </div>
 </div>
 
 <!-- ============ HEADER ============ -->
 <header>
   <div class="wrap head-in">
-    <a class="brand" href="#abertura" data-testid="logo-escritorio-veicular">
+    <a class="brand" href="#abertura" data-testid="logo-portal-veiculos-em-dias">
       <span class="seal" aria-hidden="true">
         <svg viewBox="0 0 64 64" fill="none">
           <circle cx="32" cy="32" r="30" fill="#b3351f"/>
           <circle cx="32" cy="32" r="23.5" fill="none" stroke="#f2ecdf" stroke-width="1.4"/>
-          <text x="32" y="40.5" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="24" fill="#f2ecdf" text-anchor="middle">EV</text>
+          <text x="32" y="40.5" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="24" fill="#f2ecdf" text-anchor="middle">PV</text>
         </svg>
       </span>
       <span>
-        <span class="brand-name">Escritório <em>Veicular</em></span>
+        <span class="brand-name">Portal Veículos <em>em Dias</em></span>
         <span class="brand-tag">Portal editorial independente</span>
       </span>
     </a>
@@ -268,14 +270,14 @@ footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
   <!-- ============ HERO ============ -->
   <section id="abertura" class="hero">
     <div class="wrap">
-      <p class="eyebrow">Leitura independente · Florianópolis, SC</p>
+      <p class="eyebrow">Leitura independente · Bento Gonçalves, RS</p>
       <h1 class="h1" data-testid="hero-titulo">
         <span class="ln"><span>Documento em dia,</span></span>
         <span class="ln"><span>transferência sem susto</span></span>
         <span class="ln"><span>e revisão <em>no tempo certo</em> —</span></span>
         <span class="ln"><span>explicados em um só lugar.</span></span>
       </h1>
-      <p class="hero-sub rv" data-testid="hero-descricao">Prazo de licenciamento, vistoria de transferência e compra de usado costumam vir em informação picada. Aqui esses assuntos ficam juntos, em texto direto, para quem dirige em Santa Catarina. Quem procura despachante, emissão de documento ou orçamento não encontra atendimento: o portal só publica texto.</p>
+      <p class="hero-sub rv" data-testid="hero-descricao">Prazo de licenciamento, vistoria de transferência e compra de usado costumam vir em informação picada. Aqui esses assuntos ficam juntos, em texto direto, para quem dirige no Rio Grande do Sul. Quem procura despachante, emissão de documento ou orçamento não encontra atendimento: o portal só publica texto.</p>
       <div class="hero-acoes rv">
         <a class="btn" href="#temas" data-testid="cta-ver-temas">Ler os quatro temas <span class="ar">↓</span></a>
         <a class="btn2" href="#contato" data-testid="cta-falar-redacao">Falar com a redação</a>
@@ -287,14 +289,14 @@ footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
             <circle cx="100" cy="100" r="98" fill="#b3351f"/>
             <circle cx="100" cy="100" r="58" fill="none" stroke="#f2ecdf" stroke-width="1.6"/>
             <text font-family="IBM Plex Mono,monospace" font-size="12.5" letter-spacing="3.4" fill="#f2ecdf">
-              <textPath href="#circ">ESCRITÓRIO VEICULAR • FLORIANÓPOLIS • SC •</textPath>
+              <textPath href="#circ">VEÍCULOS EM DIAS • BENTO GONÇALVES • RS •</textPath>
             </text>
-            <text x="100" y="114" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="46" fill="#f2ecdf" text-anchor="middle">EV</text>
+            <text x="100" y="114" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="46" fill="#f2ecdf" text-anchor="middle">PV</text>
           </svg>
         </div>
         <figure class="paisagem">
           <img src="https://images.pexels.com/photos/17085138/pexels-photo-17085138.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Farol de LED de um carro preto de luxo fotografado ao entardecer" width="1800" height="750" fetchpriority="high" data-par="0.14">
-          <figcaption class="cap">Escritório Veicular · Florianópolis, SC</figcaption>
+          <figcaption class="cap">Portal Veículos em Dias · Bento Gonçalves, RS</figcaption>
         </figure>
       </div>
     </div>
@@ -401,16 +403,18 @@ footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
         <p class="eyebrow rv">Sobre</p>
         <h2 class="h2 rv" style="margin-top:22px">Quem mantém o portal <em>e por quê</em></h2>
         <p class="rv lead">As dúvidas de quem tem carro raramente ficam explicadas num lugar só: o vencimento do licenciamento está numa página, o prazo da vistoria noutra, a regra da transferência num terceiro site. A empresa decidiu manter uma publicação que reúna esses assuntos.</p>
-        <p class="rv">O portal é mantido pela <strong>Eugenio Raulino Koerich SA Comercio e Industria</strong>, CNPJ 86.184.074/0018-99, empresa privada com atividade de comércio e indústria, conforme a Receita Federal, e situação cadastral ativa. A publicação é um projeto editorial dela e não tem ligação com serviço automotivo.</p>
-        <p class="rv">A sede fica em Florianópolis, Santa Catarina. O ramo cadastrado da empresa não é o de serviços automotivos — e o portal diz isso abertamente: o que dá base aos textos é conhecimento técnico e de documentação, que não muda de estado nem de ramo de negócio.</p>
+        <p class="rv">O portal é mantido pela <strong>Bora Decorar — M. Barreto Comercio Eletronico de Moveis LTDA</strong>, CNPJ 47.220.506/0001-70, fundada em 20/07/2022, empresa privada com atividade principal 47.54-7-01 — Comércio varejista de móveis, conforme a Receita Federal, e situação cadastral ativa. A publicação é um projeto editorial dela e não tem ligação com serviço automotivo.</p>
+        <p class="rv">A sede fica em Bento Gonçalves, Rio Grande do Sul. O ramo cadastrado da empresa não é o de serviços automotivos — e o portal diz isso abertamente: o que dá base aos textos é conhecimento técnico e de documentação, que não muda de estado nem de ramo de negócio.</p>
         <p class="rv">A leitura é aberta e gratuita. O custo do portal é da própria empresa; ele não veicula anúncio, não recebe patrocínio de montadora e não vende nada.</p>
         <dl class="dados rv" data-testid="dados-empresa">
-          <div><dt>Mantenedora</dt><dd>Eugenio Raulino Koerich SA Comercio e Industria</dd></div>
-          <div><dt>CNPJ</dt><dd>86.184.074/0018-99</dd></div>
-          <div><dt>Atividade principal</dt><dd>Comércio e indústria</dd></div>
+          <div><dt>Mantenedora</dt><dd>M. Barreto Comercio Eletronico de Moveis LTDA</dd></div>
+          <div><dt>Nome fantasia</dt><dd>Bora Decorar</dd></div>
+          <div><dt>CNPJ</dt><dd>47.220.506/0001-70</dd></div>
+          <div><dt>Atividade principal</dt><dd>47.54-7-01 — Comércio varejista de móveis</dd></div>
           <div><dt>Situação cadastral</dt><dd>Ativa</dd></div>
-          <div><dt>Sede</dt><dd>Florianópolis · Santa Catarina</dd></div>
-          <div><dt>Endereço</dt><dd>Rua Deodoro, 190 — Centro<br>CEP 88010-020</dd></div>
+          <div><dt>Sede</dt><dd>Bento Gonçalves · Rio Grande do Sul</dd></div>
+          <div><dt>Endereço</dt><dd>Travessa Belém, 67 — Apt 802, Botafogo<br>CEP 95700-536</dd></div>
+          <div><dt>Fundação</dt><dd>20/07/2022</dd></div>
         </dl>
       </div>
     </div>
@@ -426,10 +430,10 @@ footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
       <div class="perguntas rv" data-testid="lista-duvidas">
         <details data-testid="faq-1"><summary><span class="pn" aria-hidden="true">P1</span>O portal agenda vistoria, emite documento ou resolve pendência por mim?</summary><p>Não. Este portal só publica texto: não agenda, não emite, não protocola, não cobra e não encaminha pedido a ninguém. Para ato prático, procure o órgão de trânsito competente ou um profissional habilitado.</p></details>
         <details data-testid="faq-2"><summary><span class="pn" aria-hidden="true">P2</span>Com que frequência o carro deve passar pela revisão?</summary><p>O manual do modelo manda. Como régua de mercado, fala-se em 10 mil km ou 12 meses, valendo o que chegar antes; uso pesado e trajetos curtos pedem intervalos menores.</p></details>
-        <details data-testid="faq-3"><summary><span class="pn" aria-hidden="true">P3</span>O conteúdo vale para quem mora no interior, longe da capital?</summary><p>Vale. A regra de documentação é estadual, a mesma em Florianópolis e no interior de Santa Catarina, e a técnica do carro não muda com o CEP. O que varia é a distância até a oficina ou ao pátio de vistoria.</p></details>
+        <details data-testid="faq-3"><summary><span class="pn" aria-hidden="true">P3</span>O conteúdo vale para quem mora no interior, longe da capital?</summary><p>Vale. A regra de documentação é estadual, a mesma em Bento Gonçalves e no restante do Rio Grande do Sul, e a técnica do carro não muda com o CEP. O que varia é a distância até a oficina ou ao pátio de vistoria.</p></details>
         <details data-testid="faq-4"><summary><span class="pn" aria-hidden="true">P4</span>Quem assina os textos e como se corrige um erro?</summary><p>O portal indica a data de publicação de cada texto e não promete checagem que não consiga provar. Quando alguém aponta um erro, a correção entra no texto com data nova.</p></details>
         <details data-testid="faq-5"><summary><span class="pn" aria-hidden="true">P5</span>Débito em aberto impede a transferência do veículo?</summary><p>Em regra, sim: multas, licenciamento em atraso e restrições judiciais costumam travar a transferência até a quitação. Por isso a consulta de débitos entra no checklist antes de qualquer recibo assinado.</p></details>
-        <details data-testid="faq-6"><summary><span class="pn" aria-hidden="true">P6</span>Como avisar sobre um erro ou sugerir um tema?</summary><p>Escrevendo para fiscal@escritorioveicular.com.br. Não há formulário, cadastro nem login. Correção confirmada entra no texto, e a data da revisão aparece no próprio artigo.</p></details>
+        <details data-testid="faq-6"><summary><span class="pn" aria-hidden="true">P6</span>Como avisar sobre um erro ou sugerir um tema?</summary><p>Escrevendo para contatto@portalveiculosemdias.com.br. Não há formulário, cadastro nem login. Correção confirmada entra no texto, e a data da revisão aparece no próprio artigo.</p></details>
       </div>
     </div>
   </section>
@@ -442,15 +446,15 @@ footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
       <div class="legal-grid">
         <article class="legal rv" data-testid="politica-privacidade">
           <h3>Política de Privacidade</h3>
-          <p>Esta página é mantida pela Eugenio Raulino Koerich SA Comercio e Industria, CNPJ 86.184.074/0018-99.</p>
+          <p>Esta página é mantida pela Bora Decorar — M. Barreto Comercio Eletronico de Moveis LTDA, CNPJ 47.220.506/0001-70.</p>
           <h4>1. Nenhum dado é pedido</h4>
           <p>O portal não tem formulário, cadastro, login nem área de assinante. A leitura é anônima e aberta.</p>
           <h4>2. Cookies e medição</h4>
-          <p>O site não grava cookie de rastreamento, não mede audiência e não exibe publicidade. O aviso de cookies é apenas informativo.</p>
+          <p>O site não grava cookies nem cache, não mede audiência e não exibe publicidade. O aviso exibido na página é apenas informativo.</p>
           <h4>3. Contato por e-mail</h4>
           <p>Quem escreve para a redação fornece apenas o endereço de e-mail e o conteúdo da mensagem. Esses dados são usados unicamente para responder, nos termos da LGPD (Lei nº 13.709/2018), e não são cedidos a terceiros.</p>
           <h4>4. Encarregado dos dados</h4>
-          <p>Pedidos de acesso, correção ou exclusão: <a href="mailto:fiscal@escritorioveicular.com.br">fiscal@escritorioveicular.com.br</a> — Eugenio Raulino Koerich SA Comercio e Industria, Rua Deodoro, 190, Centro, Florianópolis/SC, CEP 88010-020.</p>
+          <p>Pedidos de acesso, correção ou exclusão: <a href="mailto:contatto@portalveiculosemdias.com.br">contatto@portalveiculosemdias.com.br</a> — M. Barreto Comercio Eletronico de Moveis LTDA, Travessa Belém, 67, Apt 802, Botafogo, Bento Gonçalves/RS, CEP 95700-536.</p>
         </article>
         <article class="legal rv" data-testid="termos-de-uso">
           <h3>Termos de Uso</h3>
@@ -465,7 +469,7 @@ footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
           <ul>
             <li>Decisões tomadas com base no texto são de responsabilidade do leitor.</li>
             <li>Erros apontados são corrigidos com indicação de nova data.</li>
-            <li>Dúvidas sobre estes termos: (11) 3604-2600 ou fiscal@escritorioveicular.com.br.</li>
+            <li>Dúvidas sobre estes termos: (54) 3125-0979 ou contatto@portalveiculosemdias.com.br.</li>
           </ul>
         </article>
       </div>
@@ -480,19 +484,19 @@ footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
       <div class="contatos" data-testid="grade-contato">
         <div class="ficha rv">
           <h3>E-mail</h3>
-          <p><a href="mailto:fiscal@escritorioveicular.com.br" data-testid="link-email-contato">fiscal@escritorioveicular.com.br</a></p>
+          <p><a href="mailto:contatto@portalveiculosemdias.com.br" data-testid="link-email-contato">contatto@portalveiculosemdias.com.br</a></p>
         </div>
         <div class="ficha rv">
           <h3>Telefone</h3>
-          <p><a href="tel:+551136042600" data-testid="link-telefone-contato">(11) 3604-2600</a><br><a href="https://wa.me/551136042600" target="_blank" rel="noopener" data-testid="link-whatsapp-contato">Chamar no WhatsApp</a></p>
+          <p><a href="tel:+555431250979" data-testid="link-telefone-contato">(54) 3125-0979</a><br><a href="https://wa.me/555431250979" target="_blank" rel="noopener" data-testid="link-whatsapp-contato">Chamar no WhatsApp</a></p>
         </div>
         <div class="ficha rv">
           <h3>Endereço</h3>
-          <p>Rua Deodoro, 190<br>Centro<br>Florianópolis/SC<br>CEP 88010-020</p>
+          <p>Travessa Belém, 67<br>Apt 802 — Botafogo<br>Bento Gonçalves/RS<br>CEP 95700-536</p>
         </div>
         <div class="ficha rv">
           <h3>Mantenedora</h3>
-          <p>Eugenio Raulino Koerich SA Comercio e Industria<br>CNPJ 86.184.074/0018-99<br><span style="color:var(--faint);font-size:13px">Correspondência: Eugenio Raulino Koerich SA Comercio e Industria, endereço ao lado</span></p>
+          <p>Bora Decorar<br>M. Barreto Comercio Eletronico de Moveis LTDA<br>CNPJ 47.220.506/0001-70<br><span style="color:var(--faint);font-size:13px">Correspondência: M. Barreto Comercio Eletronico de Moveis LTDA, Travessa Belém 67 Apt 802, Botafogo, Bento Gonçalves RS, 95700-536</span></p>
         </div>
         <div class="sem-form rv">
           <p>Não se preenche formulário, não se cria cadastro nem se faz login: o portal não pede dado nenhum ao leitor. Quem quiser apontar um erro ou propor um assunto escreve para o e-mail da redação. Quem procura serviço, documento ou orçamento não encontra atendimento por aqui.</p>
@@ -511,10 +515,10 @@ footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
           <svg viewBox="0 0 64 64" fill="none">
             <circle cx="32" cy="32" r="30" fill="#b3351f"/>
             <circle cx="32" cy="32" r="23.5" fill="none" stroke="#f2ecdf" stroke-width="1.4"/>
-            <text x="32" y="40.5" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="24" fill="#f2ecdf" text-anchor="middle">EV</text>
+            <text x="32" y="40.5" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="24" fill="#f2ecdf" text-anchor="middle">PV</text>
           </svg>
         </span>
-        <p>Escritório Veicular — portal editorial independente sobre documentação, transferência, licenciamento e revisão. Mantido pela Eugenio Raulino Koerich SA Comercio e Industria, CNPJ 86.184.074/0018-99, Florianópolis/SC.</p>
+        <p>Portal Veículos em Dias — portal editorial independente sobre documentação, transferência, licenciamento e revisão. Mantido pela Bora Decorar — M. Barreto Comercio Eletronico de Moveis LTDA, CNPJ 47.220.506/0001-70, Bento Gonçalves/RS.</p>
       </div>
       <div class="foot-nav">
         <div>
@@ -537,17 +541,18 @@ footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
       </div>
     </div>
     <div class="foot-base">
-      <span>Escritório Veicular · Publicação editorial · CNPJ 86.184.074/0018-99</span>
-      <span>Florianópolis · Santa Catarina</span>
+      <span>Portal Veículos em Dias · Publicação editorial · CNPJ 47.220.506/0001-70</span>
+      <span>Bento Gonçalves · Rio Grande do Sul</span>
     </div>
   </div>
 </footer>
 
-<!-- ============ AVISO DE COOKIES ============ -->
+<!-- ============ AVISO (FECHÁVEL NO X) ============ -->
 <input type="checkbox" id="aviso-ok" class="aviso-chk">
 <div class="aviso" role="region" aria-label="Aviso sobre cookies" data-testid="aviso-cookies">
-  <p>Este aviso é só informativo: o site não grava cookie, não mede audiência e não exibe publicidade. Fechar o aviso não salva nada no navegador, por isso ele pode reaparecer em outra visita. Os detalhes estão na <a href="#politicas">Política de Privacidade</a>.</p>
-  <label for="aviso-ok" data-testid="fechar-aviso-cookies">Fechar aviso</label>
+  <label for="aviso-ok" class="x" aria-label="Fechar aviso" data-testid="fechar-aviso-x">&times;</label>
+  <p><strong>Aviso:</strong> este site não grava cookies nem cache e não emite nenhum documento. O Portal Veículos em Dias é <strong>apenas um portal informativo</strong>: não cobra taxa, não presta serviço de despachante e não tem ligação com órgão de trânsito. Os detalhes estão na <a href="#politicas">Política de Privacidade</a>.</p>
+  <label for="aviso-ok" data-testid="fechar-aviso-cookies">Entendi</label>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
