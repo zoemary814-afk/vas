@@ -1,584 +1,599 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Escritório Veicular — Consultoria e Documentação</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escritório Veicular — portal editorial independente sobre o carro em dia</title>
+<meta name="description" content="Portal editorial independente sobre documentação, transferência, licenciamento e revisão. Publicação mantida por empresa privada, CNPJ 86.184.074/0018-99, com finalidade somente editorial e informativa.">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="%23b3351f"/><circle cx="32" cy="32" r="23" fill="none" stroke="%23f2ecdf" stroke-width="2"/><text x="32" y="41" font-family="Georgia" font-size="26" fill="%23f2ecdf" text-anchor="middle" font-style="italic">EV</text></svg>'>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="htt...ap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2ecdf; --paper-2:#eae2d0; --ink:#14201a; --ink-2:#1d2c23;
+  --red:#b3351f; --red-soft:#c8502f; --faint:#6f6a5c; --faint-dark:#9aa394;
+  --line:rgba(20,32,26,.16); --line-dark:rgba(242,236,223,.16);
+  --serif:"Fraunces",Georgia,serif; --sans:"Archivo",system-ui,sans-serif; --mono:"IBM Plex Mono",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:auto}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--red);color:var(--paper)}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1280px,92vw);margin-inline:auto}
 
-  <style>
-    :root {
-      --bg-deep: #040b14;
-      --bg-card: rgba(255,255,255,0.03);
-      --glass-border: rgba(255,255,255,0.06);
-      --text-primary: #f0f0f5;
-      --text-secondary: rgba(255,255,255,0.65);
-      --accent: #c9a96e; /* dourado/cobre premium */
-      --accent-glow: rgba(201,169,110,0.25);
-      --radius: 20px;
-    }
+/* ============ AVISO LEGAL ============ */
+.faixa{background:var(--red);color:var(--paper);font-family:var(--mono);font-size:12px;letter-spacing:.01em;padding:10px 0}
+.faixa .wrap{display:flex;gap:14px;align-items:flex-start}
+.faixa .sinal{flex:none;width:18px;height:18px;border:1.5px solid var(--paper);border-radius:50%;display:grid;place-items:center;font-weight:500;font-size:11px;margin-top:1px}
+.faixa p{max-width:110ch}
+.faixa strong{font-weight:500}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* ============ HEADER ============ */
+header{position:sticky;top:0;z-index:60;background:rgba(242,236,223,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.head-in{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.seal{flex:none;width:44px;height:44px}
+.seal svg{width:100%;height:100%}
+.brand-name{font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:-.01em;line-height:1.1}
+.brand-name em{font-style:italic;color:var(--red)}
+.brand-tag{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--faint);display:block;margin-top:2px}
+nav{display:flex;gap:30px}
+nav a{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;text-decoration:none;position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.65,0,.35,1)}
+nav a:hover::after{transform:scaleX(1);transform-origin:left}
+@media(max-width:900px){nav{display:none}}
 
-    html { scroll-behavior: smooth; }
+/* ============ HERO ============ */
+.hero{padding:88px 0 0;position:relative}
+.eyebrow{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.22em;color:var(--red);display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--red)}
+.h1{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;font-size:clamp(42px,7.2vw,104px);line-height:1.02;margin-top:30px}
+.h1 em{font-style:italic;color:var(--red);font-weight:300}
+.ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.ln>span{display:block;transform:translateY(115%)}
+.hero-sub{max-width:56ch;margin-top:34px;color:var(--faint);font-size:17px;line-height:1.75}
+.hero-acoes{display:flex;gap:16px;flex-wrap:wrap;margin-top:40px}
+.btn,.btn2{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.12em;padding:16px 30px;border-radius:999px;text-decoration:none;transition:background-color .35s,color .35s,border-color .35s,transform .35s}
+.btn{background:var(--ink);color:var(--paper);border:1px solid var(--ink)}
+.btn:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px)}
+.btn .ar{display:inline-block;margin-left:8px;transition:transform .35s}
+.btn:hover .ar{transform:translateY(3px)}
+.btn2{border:1px solid var(--line);color:var(--ink)}
+.btn2:hover{border-color:var(--ink);transform:translateY(-2px)}
+.stage{margin-top:76px;position:relative}
+.paisagem{position:relative;overflow:hidden;border-radius:8px;clip-path:inset(6% 4% round 8px);aspect-ratio:21/9}
+.paisagem img{width:100%;height:130%;object-fit:cover;will-change:transform}
+.paisagem .cap{position:absolute;left:22px;bottom:18px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);background:rgba(20,32,26,.55);backdrop-filter:blur(6px);padding:8px 14px;border-radius:999px}
+.stamp{position:absolute;top:-64px;right:5%;width:150px;height:150px;z-index:5;animation:spin 26s linear infinite;filter:drop-shadow(0 10px 24px rgba(20,32,26,.25))}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:900px){.stamp{width:104px;height:104px;top:-44px}}
 
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg-deep);
-      color: var(--text-primary);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+/* ============ MARQUEE ============ */
+.marquee{margin-top:84px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:20px 0;background:var(--paper-2)}
+.track{display:flex;width:max-content;animation:mq 46s linear infinite}
+.track span{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(20px,2.6vw,32px);white-space:nowrap;color:var(--ink);padding-right:12px}
+.track i{font-style:normal;color:var(--red);padding:0 18px}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-    /* Fundo animado sutil */
-    .ambient {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background:
-        radial-gradient(at 20% 10%, rgba(201,169,110,0.08) 0%, transparent 50%),
-        radial-gradient(at 80% 90%, rgba(255,255,255,0.03) 0%, transparent 40%),
-        radial-gradient(at 50% 50%, rgba(201,169,110,0.05) 0%, transparent 60%),
-        linear-gradient(180deg, #040b14 0%, #060f1a 100%);
-      pointer-events: none;
-    }
+/* ============ SEÇÕES ============ */
+.sec{padding:130px 0}
+.h2{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;font-size:clamp(32px,4.4vw,58px);line-height:1.08}
+.h2 em{font-style:italic;color:var(--red);font-weight:300}
+.intro{color:var(--faint);max-width:42ch;font-size:16px}
+.rv{opacity:0;transform:translateY(34px)}
 
-    /* Navbar */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5vw;
-      z-index: 100;
-      background: rgba(4,11,20,0.7);
-      backdrop-filter: blur(16px) saturate(120%);
-      -webkit-backdrop-filter: blur(16px) saturate(120%);
-      border-bottom: 1px solid var(--glass-border);
-    }
+/* ============ TEMAS ============ */
+.temas-head{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap}
+.pauta{list-style:none;margin-top:70px;border-top:1px solid var(--line)}
+.pauta li{display:grid;grid-template-columns:110px 1fr 1.2fr;gap:34px;align-items:baseline;padding:44px 18px;border-bottom:1px solid var(--line);transition:background-color .45s,padding-left .45s;position:relative}
+.pauta li:hover{background:var(--ink);padding-left:38px}
+.pauta li:hover h3,.pauta li:hover p{color:var(--paper)}
+.pauta li:hover p{color:var(--faint-dark)}
+.pauta li:hover .marco{color:var(--red-soft)}
+.marco{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(34px,3.6vw,52px);color:var(--red);line-height:1;transition:color .45s}
+.pauta h3{font-family:var(--serif);font-weight:600;font-size:clamp(20px,2vw,27px);letter-spacing:-.01em;transition:color .45s}
+.pauta p{color:var(--faint);font-size:15px;max-width:52ch;transition:color .45s}
+@media(max-width:900px){.pauta li{grid-template-columns:60px 1fr;gap:18px}.pauta p{grid-column:2}}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-decoration: none;
-    }
+/* ============ CHECKLIST ============ */
+.check{padding:0 0 130px}
+.panel{background:var(--ink);color:var(--paper);border-radius:14px;padding:clamp(44px,6vw,90px);position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;inset:14px;border:1px solid var(--line-dark);border-radius:8px;pointer-events:none}
+.panel .eyebrow{color:var(--red-soft)}
+.panel .eyebrow::before{background:var(--red-soft)}
+.panel .h2 em{color:var(--red-soft)}
+.check-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,5vw,90px)}
+@media(max-width:900px){.check-grid{grid-template-columns:1fr}}
+.contador{font-family:var(--serif);font-weight:300;font-size:clamp(60px,7vw,96px);line-height:1;margin-top:44px}
+.contador small{font-size:.35em;color:var(--faint-dark);font-style:italic}
+.barra{height:2px;background:var(--line-dark);margin-top:22px;max-width:280px}
+.barra i{display:block;height:100%;width:0;background:var(--red-soft);transition:width .6s cubic-bezier(.65,0,.35,1)}
+.conferir{list-style:none}
+.conferir li{border-bottom:1px solid var(--line-dark)}
+.conferir label{display:flex;gap:18px;align-items:flex-start;padding:20px 4px;cursor:pointer;transition:padding-left .35s}
+.conferir label:hover{padding-left:12px}
+.conferir input{appearance:none;flex:none;width:20px;height:20px;margin-top:3px;border:1.5px solid var(--faint-dark);border-radius:4px;cursor:pointer;position:relative;transition:background-color .3s,border-color .3s}
+.conferir input:checked{background:var(--red-soft);border-color:var(--red-soft)}
+.conferir input:checked::after{content:"";position:absolute;left:6px;top:2px;width:5px;height:10px;border:solid var(--paper);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.conferir .tira{font-size:15px;color:var(--faint-dark);transition:color .3s}
+.conferir input:checked~.tira{color:var(--paper);text-decoration:line-through;text-decoration-color:var(--red-soft);text-decoration-thickness:1px}
+.fecho{margin-top:30px;font-family:var(--serif);font-style:italic;font-weight:300;font-size:19px;line-height:1.6;color:var(--paper)}
 
-    .brand-icon {
-      width: 42px; height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), #8a7040);
-      display: grid; place-items: center;
-      box-shadow: 0 0 20px var(--accent-glow);
-    }
+/* ============ DÚVIDAS ============ */
+.faq-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(40px,6vw,110px);align-items:start}
+@media(max-width:900px){.faq-grid{grid-template-columns:1fr}}
+.sticky{position:sticky;top:120px}
+@media(max-width:900px){.sticky{position:static}}
+.perguntas details{border-top:1px solid var(--line)}
+.perguntas details:last-child{border-bottom:1px solid var(--line)}
+.perguntas summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:64px 1fr 28px;gap:20px;align-items:center;padding:28px 6px;font-family:var(--serif);font-weight:600;font-size:clamp(17px,1.6vw,21px);letter-spacing:-.01em;transition:color .3s}
+.perguntas summary::-webkit-details-marker{display:none}
+.perguntas summary:hover{color:var(--red)}
+.pn{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--red);font-weight:400}
+.perguntas summary::after{content:"+";justify-self:end;font-family:var(--serif);font-weight:300;font-size:26px;color:var(--red);transition:transform .4s cubic-bezier(.65,0,.35,1)}
+.perguntas details[open] summary::after{transform:rotate(45deg)}
+.perguntas details p{padding:0 6px 30px 84px;color:var(--faint);font-size:15px;max-width:60ch}
+@media(max-width:600px){.perguntas details p{padding-left:6px}}
 
-    .brand-icon i { color: #0a0f14; font-size: 1.1rem; }
+/* ============ SOBRE ============ */
+.sobre{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.quem-grade{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(44px,6vw,100px);align-items:start}
+@media(max-width:900px){.quem-grade{grid-template-columns:1fr}}
+.quem-foto{position:sticky;top:120px}
+@media(max-width:900px){.quem-foto{position:static}}
+.quem-foto .frame{overflow:hidden;border-radius:8px;aspect-ratio:4/4.4}
+.quem-foto img{width:100%;height:120%;object-fit:cover;will-change:transform}
+.quem-foto figcaption{margin-top:14px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--faint)}
+.quem-txt .lead{font-family:var(--serif);font-weight:300;font-size:clamp(19px,1.8vw,23px);line-height:1.6;margin-top:34px}
+.quem-txt p{margin-top:22px;color:var(--faint);font-size:16px}
+.quem-txt p strong{color:var(--ink);font-weight:600}
+.dados{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.dados>div{padding:20px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dados dt{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--red)}
+.dados dd{font-family:var(--serif);font-size:17px;margin-top:8px;line-height:1.4}
+@media(max-width:600px){.dados{grid-template-columns:1fr}}
 
-    .brand-text { line-height: 1.1; }
-    .brand-text h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: var(--text-primary);
-    }
-    .brand-text span {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      font-weight: 600;
-    }
+/* ============ LEITURAS ============ */
+.bento{margin-top:64px;display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto;gap:26px}
+@media(max-width:900px){.bento{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.22,1,.36,1),box-shadow .5s}
+.card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -20px rgba(20,32,26,.28)}
+.card.grande{grid-row:span 2}
+.card .ph{overflow:hidden;aspect-ratio:16/8.5}
+.card.grande .ph{aspect-ratio:16/9}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.22,1,.36,1)}
+.card:hover .ph img{transform:scale(1.05)}
+.card .corpo{padding:28px 30px 32px;display:flex;flex-direction:column;gap:14px;flex:1}
+.card h3{font-family:var(--serif);font-weight:600;font-size:clamp(19px,1.7vw,24px);line-height:1.25;letter-spacing:-.01em}
+.card.grande h3{font-size:clamp(24px,2.4vw,34px)}
+.card h3 a{text-decoration:none;transition:color .3s}
+.card h3 a:hover{color:var(--red)}
+.card .corpo p{color:var(--faint);font-size:15px}
+.seguir{margin-top:auto;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.seguir::after{content:"→";transition:transform .3s}
+.seguir:hover::after{transform:translateX(6px)}
+.nota-leit{margin-top:44px;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(17px,1.6vw,21px);color:var(--faint)}
+.nota-leit a{color:var(--red);text-decoration:none;border-bottom:1px solid var(--red)}
 
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-secondary);
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      transition: color .3s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px;
-      background: var(--accent); transition: width .3s;
-    }
-    .nav-links a:hover { color: var(--text-primary); }
-    .nav-links a:hover::after { width: 100%; }
+/* ============ POLÍTICAS ============ */
+.legal-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:64px}
+@media(max-width:900px){.legal-grid{grid-template-columns:1fr}}
+.legal{border:1px solid var(--line);border-radius:10px;padding:clamp(30px,3.4vw,48px);background:var(--paper)}
+.legal h3{font-family:var(--serif);font-weight:600;font-size:26px;letter-spacing:-.01em}
+.legal h3+p{margin-top:18px}
+.legal h4{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--red);margin-top:28px;font-weight:500}
+.legal p,.legal li{font-size:14.5px;color:var(--faint);margin-top:10px;line-height:1.7}
+.legal ul{padding-left:20px}
+.legal a{color:var(--red);text-decoration:none;border-bottom:1px solid var(--red)}
 
-    /* Hero */
-    header.hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 140px 8vw 80px;
-      position: relative;
-    }
+/* ============ CONTATO ============ */
+.contatos{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+@media(max-width:1000px){.contatos{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.contatos{grid-template-columns:1fr}}
+.ficha{padding:32px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ficha h3{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--red);font-weight:500}
+.ficha p{margin-top:16px;font-size:15px;line-height:1.8}
+.ficha a{text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .3s,color .3s}
+.ficha a:hover{color:var(--red);border-color:var(--red)}
+.sem-form{grid-column:1/-1;padding:32px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink);color:var(--faint-dark)}
+.sem-form p{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(16px,1.5vw,20px);line-height:1.7;max-width:90ch}
 
-    .hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+/* ============ RODAPÉ ============ */
+footer{background:var(--ink);color:var(--paper);padding:90px 0 46px}
+.foot-grid{display:flex;justify-content:space-between;gap:48px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;gap:18px;align-items:center;max-width:420px}
+.foot-brand .seal{width:64px;height:64px}
+.foot-brand p{font-family:var(--mono);font-size:11.5px;line-height:1.8;color:var(--faint-dark);letter-spacing:.02em}
+.foot-nav{display:flex;gap:56px;flex-wrap:wrap}
+.foot-nav h4{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--red-soft);font-weight:500}
+.foot-nav ul{list-style:none;margin-top:18px;display:grid;gap:12px}
+.foot-nav a{font-size:14px;color:var(--faint-dark);text-decoration:none;transition:color .3s}
+.foot-nav a:hover{color:var(--paper)}
+.foot-base{margin-top:70px;padding-top:26px;border-top:1px solid var(--line-dark);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint-dark)}
 
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--glass-border);
-      background: var(--bg-card);
-      color: var(--accent);
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-bottom: 28px;
-      backdrop-filter: blur(8px);
-    }
-
-    .hero h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 6vw, 6rem);
-      font-weight: 300;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
-    }
-
-    .hero h2 em {
-      font-style: italic;
-      color: var(--accent);
-      font-weight: 400;
-    }
-
-    .hero p.subtitle {
-      max-width: 520px;
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 48px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 28px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all .3s ease;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #8a7040);
-      color: #0a0f14;
-      box-shadow: 0 8px 30px rgba(201,169,110,0.25);
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 40px rgba(201,169,110,0.35);
-    }
-
-    .btn-ghost {
-      background: var(--bg-card);
-      color: var(--text-primary);
-      border-color: var(--glass-border);
-      backdrop-filter: blur(8px);
-    }
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    /* Seções gerais */
-    section {
-      padding: 120px 8vw;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      margin-bottom: 64px;
-    }
-
-    .section-header h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300;
-      margin-bottom: 14px;
-      letter-spacing: -0.02em;
-    }
-
-    .section-header p {
-      color: var(--text-secondary);
-      max-width: 480px;
-      font-size: 0.95rem;
-    }
-
-    /* Cards / Grid */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius);
-      padding: 40px;
-      backdrop-filter: blur(12px);
-      transition: transform .3s ease, border-color .3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0.6;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(201,169,110,0.25);
-    }
-
-    .card-icon {
-      width: 48px; height: 48px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(201,169,110,0.15), rgba(201,169,110,0.05));
-      border: 1px solid rgba(201,169,110,0.15);
-      display: grid; place-items: center;
-      margin-bottom: 24px;
-      color: var(--accent);
-      font-size: 1.2rem;
-    }
-
-    .card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      letter-spacing: 0.01em;
-    }
-
-    .card p, .card li {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      line-height: 1.7;
-    }
-
-    .card ul { list-style: none; margin-top: 12px; }
-    .card li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-    .card li i {
-      color: var(--accent);
-      font-size: 0.75rem;
-      margin-top: 4px;
-    }
-
-    /* Dados específicos */
-    .data-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--glass-border);
-    }
-    .data-row:last-child { border-bottom: none; }
-    .data-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      font-weight: 600;
-    }
-    .data-value {
-      text-align: right;
-      color: var(--text-primary);
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-
-    /* Localização */
-    .map-card {
-      position: relative;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--glass-border);
-      height: 320px;
-      background: linear-gradient(135deg, #0a0f14, #060f1a);
-    }
-    .map-card iframe {
-      width: 100%; height: 100%; border: 0; filter: grayscale(0.8) contrast(1.1) brightness(0.9);
-    }
-
-    /* Contato */
-    .contact-cta {
-      text-align: center;
-      padding: 100px 40px;
-      border-radius: var(--radius);
-      background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border: 1px solid var(--glass-border);
-      position: relative;
-      overflow: hidden;
-    }
-    .contact-cta::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle at center, rgba(201,169,110,0.08), transparent 60%);
-      pointer-events: none;
-    }
-
-    .contact-cta h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-      position: relative;
-      z-index: 1;
-    }
-    .contact-cta p {
-      color: var(--text-secondary);
-      margin-bottom: 28px;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--glass-border);
-      padding: 48px 8vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 24px;
-      color: var(--text-secondary);
-      font-size: 0.85rem;
-    }
-
-    /* Animação de entrada */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .anim {
-      animation: fadeUp 0.9s ease-out both;
-    }
-
-    @media (max-width: 860px) {
-      nav { padding: 0 24px; height: 70px; }
-      .nav-links { gap: 16px; }
-      .hero { padding: 120px 24px 80px; }
-      section { padding: 80px 24px; }
-      footer { flex-direction: column; text-align: center; }
-    }
-  </style>
+/* ============ AVISO COOKIES ============ */
+.aviso-chk{position:fixed;opacity:0;pointer-events:none}
+.aviso{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:80;width:min(680px,92vw);background:var(--ink);color:var(--faint-dark);border:1px solid var(--line-dark);border-radius:12px;padding:24px 28px;display:flex;gap:24px;align-items:center;box-shadow:0 30px 60px -20px rgba(20,32,26,.5);transition:opacity .5s,transform .5s}
+.aviso p{font-size:13px;line-height:1.7}
+.aviso a{color:var(--paper);border-bottom:1px solid var(--red-soft);text-decoration:none}
+.aviso label{flex:none;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--paper);border:1px solid var(--line-dark);border-radius:999px;padding:12px 22px;cursor:pointer;transition:background-color .3s,color .3s}
+.aviso label:hover{background:var(--red);border-color:var(--red)}
+.aviso-chk:checked~.aviso{opacity:0;transform:translateX(-50%) translateY(20px);pointer-events:none}
+@media(max-width:600px){.aviso{flex-direction:column;align-items:flex-start}}
+</style>
 </head>
 <body>
 
-  <div class="ambient"></div>
+<!-- ============ AVISO LEGAL — TOPO ============ -->
+<div class="faixa" data-testid="aviso-legal-topo">
+  <div class="wrap">
+    <span class="sinal" aria-hidden="true">!</span>
+    <p><strong>CNPJ 86.184.074/0018-99.</strong> Publicação mantida por empresa privada de comércio e indústria, com finalidade somente editorial e informativa. Nada neste portal emite documento, cobra taxa, vende peça ou equipamento, nem intermedeia negócio com terceiros.</p>
+  </div>
+</div>
 
-  <!-- Navbar -->
-  <nav aria-label="Principal">
-    <a href="#" class="brand" aria-label="Escritório Veicular - Início">
-      <div class="brand-icon" aria-hidden="true">
-        <i class="fa-solid fa-building-columns"></i>
-      </div>
-      <div class="brand-text">
-        <h1>Escritório Veicular</h1>
-        <span>Documentação & Regularização</span>
-      </div>
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap head-in">
+    <a class="brand" href="#abertura" data-testid="logo-escritorio-veicular">
+      <span class="seal" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="30" fill="#b3351f"/>
+          <circle cx="32" cy="32" r="23.5" fill="none" stroke="#f2ecdf" stroke-width="1.4"/>
+          <text x="32" y="40.5" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="24" fill="#f2ecdf" text-anchor="middle">EV</text>
+        </svg>
+      </span>
+      <span>
+        <span class="brand-name">Escritório <em>Veicular</em></span>
+        <span class="brand-tag">Portal editorial independente</span>
+      </span>
     </a>
+    <nav>
+      <a href="#temas" data-testid="nav-temas">Temas</a>
+      <a href="#checklist" data-testid="nav-checklist">Checklist</a>
+      <a href="#leituras" data-testid="nav-leituras">Leituras</a>
+      <a href="#duvidas" data-testid="nav-duvidas">Dúvidas</a>
+      <a href="#sobre" data-testid="nav-sobre">Sobre</a>
+      <a href="#contato" data-testid="nav-contato">Contato</a>
+    </nav>
+  </div>
+</header>
 
-    <ul class="nav-links">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#registro">Registro</a></li>
-      <li><a href="#localizacao">Localização</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <!-- Hero -->
-    <header class="hero" id="inicio">
-      <div class="hero-inner">
-        <div class="hero-label anim" style="animation-delay:0.1s">
-          <i class="fa-solid fa-shield-halved"></i>
-          <span>Consultoria Veicular Premium</span>
+<main>
+  <!-- ============ HERO ============ -->
+  <section id="abertura" class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Leitura independente · Florianópolis, SC</p>
+      <h1 class="h1" data-testid="hero-titulo">
+        <span class="ln"><span>Documento em dia,</span></span>
+        <span class="ln"><span>transferência sem susto</span></span>
+        <span class="ln"><span>e revisão <em>no tempo certo</em> —</span></span>
+        <span class="ln"><span>explicados em um só lugar.</span></span>
+      </h1>
+      <p class="hero-sub rv" data-testid="hero-descricao">Prazo de licenciamento, vistoria de transferência e compra de usado costumam vir em informação picada. Aqui esses assuntos ficam juntos, em texto direto, para quem dirige em Santa Catarina. Quem procura despachante, emissão de documento ou orçamento não encontra atendimento: o portal só publica texto.</p>
+      <div class="hero-acoes rv">
+        <a class="btn" href="#temas" data-testid="cta-ver-temas">Ler os quatro temas <span class="ar">↓</span></a>
+        <a class="btn2" href="#contato" data-testid="cta-falar-redacao">Falar com a redação</a>
+      </div>
+      <div class="stage">
+        <div class="stamp" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <defs><path id="circ" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs>
+            <circle cx="100" cy="100" r="98" fill="#b3351f"/>
+            <circle cx="100" cy="100" r="58" fill="none" stroke="#f2ecdf" stroke-width="1.6"/>
+            <text font-family="IBM Plex Mono,monospace" font-size="12.5" letter-spacing="3.4" fill="#f2ecdf">
+              <textPath href="#circ">ESCRITÓRIO VEICULAR • FLORIANÓPOLIS • SC •</textPath>
+            </text>
+            <text x="100" y="114" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="46" fill="#f2ecdf" text-anchor="middle">EV</text>
+          </svg>
         </div>
+        <figure class="paisagem">
+          <img src="https://images.pexels.com/photos/17085138/pexels-photo-17085138.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Farol de LED de um carro preto de luxo fotografado ao entardecer" width="1800" height="750" fetchpriority="high" data-par="0.14">
+          <figcaption class="cap">Escritório Veicular · Florianópolis, SC</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-        <h2 class="anim" style="animation-delay:0.2s">
-          Excelência em <em>documentação</em> e regularização de veículos
-        </h2>
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Documentação em dia <i>·</i> Transferência de propriedade <i>·</i> Licenciamento anual <i>·</i> Compra de usado <i>·</i> Revisão preventiva <i>·</i>&nbsp;</span>
+      <span>Documentação em dia <i>·</i> Transferência de propriedade <i>·</i> Licenciamento anual <i>·</i> Compra de usado <i>·</i> Revisão preventiva <i>·</i>&nbsp;</span>
+    </div>
+  </div>
 
-        <p class="subtitle anim" style="animation-delay:0.3s">
-          Atuação direta e personalizada para empresas e proprietários que buscam segurança jurídica e agilidade nos processos veiculares.
-        </p>
+  <!-- ============ TEMAS ============ -->
+  <section id="temas" class="sec">
+    <div class="wrap">
+      <div class="temas-head">
+        <div>
+          <p class="eyebrow rv">Temas</p>
+          <h2 class="h2 rv" style="margin-top:22px">Quatro assuntos cobrem a maior parte <em>das dúvidas</em></h2>
+        </div>
+        <p class="intro rv">Cada tema vira um artigo ou uma seção do guia, com prazo, exemplo e o limite do que um texto resolve. Nenhum bloco processa solicitação do leitor.</p>
+      </div>
+      <ol class="pauta" data-testid="lista-temas">
+        <li class="rv"><span class="marco" aria-hidden="true">01</span><h3>Documentação em dia</h3><p>O documento anual do carro e a carteira de habilitação têm calendários separados, e confundir os dois é o descuido mais comum. A data do licenciamento segue o final da placa, conforme o calendário do Estado.</p></li>
+        <li class="rv"><span class="marco" aria-hidden="true">02</span><h3>Transferência de propriedade</h3><p>A vistoria olha mais a identificação do que o motor: numeração do chassi, plaqueta, padrão da placa e itens de segurança. Saber disso antes evita uma segunda ida ao pátio.</p></li>
+        <li class="rv"><span class="marco" aria-hidden="true">03</span><h3>Comprar usado com cabeça fria</h3><p>Antes de fechar, vale olhar o histórico de manutenção, o desgaste dos pneus e o alinhamento das portas, e pedir por escrito o que foi combinado. Conhecer o vendedor não dispensa conferir o chassi.</p></li>
+        <li class="rv"><span class="marco" aria-hidden="true">04</span><h3>Revisão e manutenção preventiva</h3><p>Quilômetros e meses contam juntos, porque óleo e borracha envelhecem até parados. Em trajetos curtos e repetidos, o prazo em meses costuma vencer antes do hodômetro.</p></li>
+      </ol>
+    </div>
+  </section>
 
-        <div class="hero-actions anim" style="animation-delay:0.4s">
-          <a href="#contato" class="btn btn-primary">
-            <i class="fa-regular fa-envelope"></i> Falar com Consultoria
-          </a>
-          <a href="#registro" class="btn btn-ghost">Ver Dados Cadastrais</a>
+  <!-- ============ CHECKLIST ============ -->
+  <section id="checklist" class="check">
+    <div class="wrap">
+      <div class="panel rv" data-testid="painel-checklist">
+        <div class="check-grid">
+          <div>
+            <p class="eyebrow">Checklist</p>
+            <h2 class="h2" style="margin-top:22px">Seis coisas para conferir antes de fechar <em>a transferência</em></h2>
+            <p class="intro" style="color:var(--faint-dark);margin-top:22px">Assinale o que já está resolvido. O que costuma atrasar a transferência é papel que ficou em casa, numa gaveta ou na cabeça de outra pessoa.</p>
+            <div class="contador" data-testid="contador-checklist"><span id="cnt">0</span><small> / 6</small></div>
+            <div class="barra"><i id="bar"></i></div>
+          </div>
+          <div>
+            <ul class="conferir" id="conferir">
+              <li><label><input type="checkbox" data-testid="checklist-item-1"><span class="tira">O documento do veículo (CRLV) mais recente, em mãos e legível</span></label></li>
+              <li><label><input type="checkbox" data-testid="checklist-item-2"><span class="tira">Documento de identidade do comprador dentro da validade</span></label></li>
+              <li><label><input type="checkbox" data-testid="checklist-item-3"><span class="tira">Comprovante de residência recente, com endereço que confere com o cadastro</span></label></li>
+              <li><label><input type="checkbox" data-testid="checklist-item-4"><span class="tira">Número do chassi e do motor conferidos com o documento, antes de assinar qualquer recibo</span></label></li>
+              <li><label><input type="checkbox" data-testid="checklist-item-5"><span class="tira">Consulta de débitos feita: multas e restrições quitadas ou negociadas por escrito</span></label></li>
+              <li><label><input type="checkbox" data-testid="checklist-item-6"><span class="tira">Recibo de compra e venda preenchido com dados completos, em duas vias assinadas</span></label></li>
+            </ul>
+            <p class="fecho">A conversa é o primeiro passo de qualquer negociação. Quem chega com os seis itens evita viagem perdida e sai sabendo o que foi decidido — e por quê.</p>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <!-- Sobre -->
-    <section id="sobre" aria-label="Sobre a empresa">
-      <div class="section-header anim">
-        <h3>A Empresa</h3>
-        <p>Tradição e confiabilidade na prestação de serviços de documentação e regularização.</p>
-      </div>
-
-      <div class="grid-3">
-        <article class="card anim" style="animation-delay:0.1s">
-          <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-certificate"></i></div>
-          <h4>Atividade Principal</h4>
-          <p>Comércio varejista de móveis e atuação integrada em consultoria veicular para empresas e clientes corporativos.</p>
+  <!-- ============ LEITURAS ============ -->
+  <section id="leituras" class="sec" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow rv">Leituras</p>
+      <h2 class="h2 rv" style="margin-top:22px">Últimas <em>leituras</em></h2>
+      <div class="bento" data-testid="grade-leituras">
+        <article class="card grande rv">
+          <div class="ph"><img src="https://images.unsplash.com/photo-1580014317999-e9f1936787a5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwxfHxwcmVtaXVtJTIwZGFyayUyMGNhciUyMHBob3RvZ3JhcGh5fGVufDB8fHx8MTc5MjgwNTk1OXww&ixlib=rb-4.1.0&q=85" alt="Carro preto com lanternas acesas em ambiente escuro" width="1600" height="800" loading="lazy"></div>
+          <div class="corpo">
+            <h3><a href="#temas">A janela da revisão: os quilômetros contam, mas o relógio também</a></h3>
+            <p>A recomendação do fabricante vem da vida útil prevista para cada componente, e não da vontade de vender mais. Conhecer essa lógica ajuda a conversar com a oficina sobre a lista de itens.</p>
+            <a class="seguir" href="#temas" data-testid="leitura-1">Continuar lendo</a>
+          </div>
         </article>
-
-        <article class="card anim" style="animation-delay:0.2s">
-          <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-clock-rotate-left"></i></div>
-          <h4>Fundação</h4>
-          <p>Fundada em <strong>07/02/1973</strong>, com trajetória consolidada no mercado catarinense, mantendo situação cadastral <strong>Ativa</strong> junto à Receita Federal.</p>
+        <article class="card rv">
+          <div class="ph"><img src="https://images.pexels.com/photos/14486769/pexels-photo-14486769.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Carro clássico fotografado em estúdio com luz dramática" width="1600" height="800" loading="lazy"></div>
+          <div class="corpo">
+            <h3><a href="#checklist">Comprar usado: o que conferir antes de assinar o recibo</a></h3>
+            <a class="seguir" href="#checklist" data-testid="leitura-2">Continuar lendo</a>
+          </div>
         </article>
-
-        <article class="card anim" style="animation-delay:0.3s">
-          <div class="card-icon" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></div>
-          <h4>Sede</h4>
-          <p>Localizada no coração de Florianópolis/SC, com atendimento estruturado para todo o território nacional.</p>
+        <article class="card rv">
+          <div class="ph"><img src="https://images.pexels.com/photos/17085138/pexels-photo-17085138.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Detalhe do farol de um carro preto ao entardecer" width="1600" height="800" loading="lazy"></div>
+          <div class="corpo">
+            <h3><a href="#duvidas">Licenciamento, multa e restrição: o que trava a transferência</a></h3>
+            <a class="seguir" href="#duvidas" data-testid="leitura-3">Continuar lendo</a>
+          </div>
         </article>
       </div>
-    </section>
+      <p class="nota-leit rv">A leitura mais útil daqui é o <a href="#checklist">checklist da transferência</a>, que junta documento, chassi e débitos num único roteiro de seis passos.</p>
+    </div>
+  </section>
 
-    <!-- Registro -->
-    <section id="registro" aria-label="Informações de registro" style="margin-top: 40px;">
-      <div class="section-header anim">
-        <h3>Informações de Registro</h3>
-        <p>Dados oficiais conforme cadastro na Receita Federal do Brasil.</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="card anim" style="animation-delay:0.1s">
-          <h4 style="margin-bottom: 24px;">Dados Cadastrais</h4>
-          <div class="data-row">
-            <span class="data-label">CNPJ</span>
-            <span class="data-value">86.184.074/0018-99</span>
-          </div>
-          <div class="data-row">
-            <span class="data-label">CNPJ Completo</span>
-            <span class="data-value">86184074001899</span>
-          </div>
-          <div class="data-row">
-            <span class="data-label">Razão Social</span>
-            <span class="data-value">Eugenio Raulino Koerich SA Comercio e Industria</span>
-          </div>
-          <div class="data-row">
-            <span class="data-label">Situação</span>
-            <span class="data-value" style="color: #8fd19e;">Ativa</span>
-          </div>
+  <!-- ============ SOBRE ============ -->
+  <section id="sobre" class="sec sobre">
+    <div class="wrap quem-grade">
+      <figure class="quem-foto rv">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1618418721668-0d1f72aa4bab?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwxfHxwcmVtaXVtJTIwZGFyayUyMGNhciUyMHBob3RvZ3JhcGh5fGVufDB8fHx8MTc5MjgwNTk1OXww&ixlib=rb-4.1.0&q=85" alt="Frente de um carro de luxo com grade cromada, fotografado à noite" width="1140" height="840" loading="lazy" data-par="0.08">
         </div>
+        <figcaption>Sobre o portal</figcaption>
+      </figure>
+      <div class="quem-txt">
+        <p class="eyebrow rv">Sobre</p>
+        <h2 class="h2 rv" style="margin-top:22px">Quem mantém o portal <em>e por quê</em></h2>
+        <p class="rv lead">As dúvidas de quem tem carro raramente ficam explicadas num lugar só: o vencimento do licenciamento está numa página, o prazo da vistoria noutra, a regra da transferência num terceiro site. A empresa decidiu manter uma publicação que reúna esses assuntos.</p>
+        <p class="rv">O portal é mantido pela <strong>Eugenio Raulino Koerich SA Comercio e Industria</strong>, CNPJ 86.184.074/0018-99, empresa privada com atividade de comércio e indústria, conforme a Receita Federal, e situação cadastral ativa. A publicação é um projeto editorial dela e não tem ligação com serviço automotivo.</p>
+        <p class="rv">A sede fica em Florianópolis, Santa Catarina. O ramo cadastrado da empresa não é o de serviços automotivos — e o portal diz isso abertamente: o que dá base aos textos é conhecimento técnico e de documentação, que não muda de estado nem de ramo de negócio.</p>
+        <p class="rv">A leitura é aberta e gratuita. O custo do portal é da própria empresa; ele não veicula anúncio, não recebe patrocínio de montadora e não vende nada.</p>
+        <dl class="dados rv" data-testid="dados-empresa">
+          <div><dt>Mantenedora</dt><dd>Eugenio Raulino Koerich SA Comercio e Industria</dd></div>
+          <div><dt>CNPJ</dt><dd>86.184.074/0018-99</dd></div>
+          <div><dt>Atividade principal</dt><dd>Comércio e indústria</dd></div>
+          <div><dt>Situação cadastral</dt><dd>Ativa</dd></div>
+          <div><dt>Sede</dt><dd>Florianópolis · Santa Catarina</dd></div>
+          <div><dt>Endereço</dt><dd>Rua Deodoro, 190 — Centro<br>CEP 88010-020</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
 
-        <div class="card anim" style="animation-delay:0.2s">
-          <h4 style="margin-bottom: 24px;">Classificação</h4>
+  <!-- ============ DÚVIDAS ============ -->
+  <section id="duvidas" class="sec">
+    <div class="wrap faq-grid">
+      <div class="sticky">
+        <p class="eyebrow rv">Dúvidas</p>
+        <h2 class="h2 rv" style="margin-top:22px">Dúvidas que chegam com mais <em>frequência</em></h2>
+      </div>
+      <div class="perguntas rv" data-testid="lista-duvidas">
+        <details data-testid="faq-1"><summary><span class="pn" aria-hidden="true">P1</span>O portal agenda vistoria, emite documento ou resolve pendência por mim?</summary><p>Não. Este portal só publica texto: não agenda, não emite, não protocola, não cobra e não encaminha pedido a ninguém. Para ato prático, procure o órgão de trânsito competente ou um profissional habilitado.</p></details>
+        <details data-testid="faq-2"><summary><span class="pn" aria-hidden="true">P2</span>Com que frequência o carro deve passar pela revisão?</summary><p>O manual do modelo manda. Como régua de mercado, fala-se em 10 mil km ou 12 meses, valendo o que chegar antes; uso pesado e trajetos curtos pedem intervalos menores.</p></details>
+        <details data-testid="faq-3"><summary><span class="pn" aria-hidden="true">P3</span>O conteúdo vale para quem mora no interior, longe da capital?</summary><p>Vale. A regra de documentação é estadual, a mesma em Florianópolis e no interior de Santa Catarina, e a técnica do carro não muda com o CEP. O que varia é a distância até a oficina ou ao pátio de vistoria.</p></details>
+        <details data-testid="faq-4"><summary><span class="pn" aria-hidden="true">P4</span>Quem assina os textos e como se corrige um erro?</summary><p>O portal indica a data de publicação de cada texto e não promete checagem que não consiga provar. Quando alguém aponta um erro, a correção entra no texto com data nova.</p></details>
+        <details data-testid="faq-5"><summary><span class="pn" aria-hidden="true">P5</span>Débito em aberto impede a transferência do veículo?</summary><p>Em regra, sim: multas, licenciamento em atraso e restrições judiciais costumam travar a transferência até a quitação. Por isso a consulta de débitos entra no checklist antes de qualquer recibo assinado.</p></details>
+        <details data-testid="faq-6"><summary><span class="pn" aria-hidden="true">P6</span>Como avisar sobre um erro ou sugerir um tema?</summary><p>Escrevendo para fiscal@escritorioveicular.com.br. Não há formulário, cadastro nem login. Correção confirmada entra no texto, e a data da revisão aparece no próprio artigo.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ POLÍTICAS ============ -->
+  <section id="politicas" class="sec sobre">
+    <div class="wrap">
+      <p class="eyebrow rv">Transparência</p>
+      <h2 class="h2 rv" style="margin-top:22px">Política de privacidade <em>e termos de uso</em></h2>
+      <div class="legal-grid">
+        <article class="legal rv" data-testid="politica-privacidade">
+          <h3>Política de Privacidade</h3>
+          <p>Esta página é mantida pela Eugenio Raulino Koerich SA Comercio e Industria, CNPJ 86.184.074/0018-99.</p>
+          <h4>1. Nenhum dado é pedido</h4>
+          <p>O portal não tem formulário, cadastro, login nem área de assinante. A leitura é anônima e aberta.</p>
+          <h4>2. Cookies e medição</h4>
+          <p>O site não grava cookie de rastreamento, não mede audiência e não exibe publicidade. O aviso de cookies é apenas informativo.</p>
+          <h4>3. Contato por e-mail</h4>
+          <p>Quem escreve para a redação fornece apenas o endereço de e-mail e o conteúdo da mensagem. Esses dados são usados unicamente para responder, nos termos da LGPD (Lei nº 13.709/2018), e não são cedidos a terceiros.</p>
+          <h4>4. Encarregado dos dados</h4>
+          <p>Pedidos de acesso, correção ou exclusão: <a href="mailto:fiscal@escritorioveicular.com.br">fiscal@escritorioveicular.com.br</a> — Eugenio Raulino Koerich SA Comercio e Industria, Rua Deodoro, 190, Centro, Florianópolis/SC, CEP 88010-020.</p>
+        </article>
+        <article class="legal rv" data-testid="termos-de-uso">
+          <h3>Termos de Uso</h3>
+          <p>O uso deste portal implica a aceitação das condições abaixo.</p>
+          <h4>1. Finalidade editorial</h4>
+          <p>Todo o conteúdo tem finalidade somente editorial e informativa. Nada aqui emite documento, cobra taxa, vende peça ou equipamento, nem intermedeia negócio com terceiros.</p>
+          <h4>2. Sem prestação de serviço</h4>
+          <p>O portal não executa despacho, agendamento, vistoria ou assessoria de qualquer natureza. Para atos oficiais, procure o órgão de trânsito competente ou profissional habilitado.</p>
+          <h4>3. Atualização do conteúdo</h4>
+          <p>Prazos, valores e regras citados podem mudar por decisão dos órgãos competentes. Confirme sempre no canal oficial antes de agir.</p>
+          <h4>4. Responsabilidade</h4>
           <ul>
-            <li><i class="fa-solid fa-check-circle"></i> <strong>Atividade Principal:</strong> 47.54-7-01 — Comércio varejista de móveis</li>
-            <li><i class="fa-solid fa-check-circle"></i> <strong>Natureza Jurídica:</strong> Sociedade Anônima (SA)</li>
-            <li><i class="fa-solid fa-check-circle"></i> <strong>Fundação:</strong> 07/02/1973</li>
-            <li><i class="fa-solid fa-check-circle"></i> <strong>Situação Cadastral:</strong> Ativa (Receita Federal)</li>
-            <li><i class="fa-solid fa-check-circle"></i> <strong>Localização:</strong> Florianópolis — SC</li>
+            <li>Decisões tomadas com base no texto são de responsabilidade do leitor.</li>
+            <li>Erros apontados são corrigidos com indicação de nova data.</li>
+            <li>Dúvidas sobre estes termos: (11) 3604-2600 ou fiscal@escritorioveicular.com.br.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTATO ============ -->
+  <section id="contato" class="sec">
+    <div class="wrap">
+      <p class="eyebrow rv">Contato</p>
+      <h2 class="h2 rv" style="margin-top:22px">Onde encontrar <em>a redação</em></h2>
+      <div class="contatos" data-testid="grade-contato">
+        <div class="ficha rv">
+          <h3>E-mail</h3>
+          <p><a href="mailto:fiscal@escritorioveicular.com.br" data-testid="link-email-contato">fiscal@escritorioveicular.com.br</a></p>
+        </div>
+        <div class="ficha rv">
+          <h3>Telefone</h3>
+          <p><a href="tel:+551136042600" data-testid="link-telefone-contato">(11) 3604-2600</a><br><a href="https://wa.me/551136042600" target="_blank" rel="noopener" data-testid="link-whatsapp-contato">Chamar no WhatsApp</a></p>
+        </div>
+        <div class="ficha rv">
+          <h3>Endereço</h3>
+          <p>Rua Deodoro, 190<br>Centro<br>Florianópolis/SC<br>CEP 88010-020</p>
+        </div>
+        <div class="ficha rv">
+          <h3>Mantenedora</h3>
+          <p>Eugenio Raulino Koerich SA Comercio e Industria<br>CNPJ 86.184.074/0018-99<br><span style="color:var(--faint);font-size:13px">Correspondência: Eugenio Raulino Koerich SA Comercio e Industria, endereço ao lado</span></p>
+        </div>
+        <div class="sem-form rv">
+          <p>Não se preenche formulário, não se cria cadastro nem se faz login: o portal não pede dado nenhum ao leitor. Quem quiser apontar um erro ou propor um assunto escreve para o e-mail da redação. Quem procura serviço, documento ou orçamento não encontra atendimento por aqui.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ RODAPÉ ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="seal" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="30" fill="#b3351f"/>
+            <circle cx="32" cy="32" r="23.5" fill="none" stroke="#f2ecdf" stroke-width="1.4"/>
+            <text x="32" y="40.5" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="24" fill="#f2ecdf" text-anchor="middle">EV</text>
+          </svg>
+        </span>
+        <p>Escritório Veicular — portal editorial independente sobre documentação, transferência, licenciamento e revisão. Mantido pela Eugenio Raulino Koerich SA Comercio e Industria, CNPJ 86.184.074/0018-99, Florianópolis/SC.</p>
+      </div>
+      <div class="foot-nav">
+        <div>
+          <h4>Portal</h4>
+          <ul>
+            <li><a href="#temas" data-testid="rodape-temas">Temas</a></li>
+            <li><a href="#checklist" data-testid="rodape-checklist">Checklist</a></li>
+            <li><a href="#leituras" data-testid="rodape-leituras">Leituras</a></li>
+            <li><a href="#duvidas" data-testid="rodape-duvidas">Dúvidas</a></li>
           </ul>
         </div>
-
-        <div class="card anim" style="animation-delay:0.3s">
-          <h4 style="margin-bottom: 24px;">Endereço Comercial</h4>
+        <div>
+          <h4>Institucional</h4>
           <ul>
-            <li><i class="fa-solid fa-location-dot"></i> <strong>Logradouro:</strong> Rua Deodoro, 190</li>
-            <li><i class="fa-solid fa-location-dot"></i> <strong>Bairro:</strong> Centro</li>
-            <li><i class="fa-solid fa-location-dot"></i> <strong>CEP:</strong> 88010-020</li>
-            <li><i class="fa-solid fa-location-dot"></i> <strong>Município:</strong> Florianópolis</li>
-            <li><i class="fa-solid fa-location-dot"></i> <strong>Estado:</strong> Santa Catarina</li>
+            <li><a href="#sobre" data-testid="rodape-sobre">Sobre o portal</a></li>
+            <li><a href="#politicas" data-testid="rodape-politicas">Privacidade e termos</a></li>
+            <li><a href="#contato" data-testid="rodape-contato">Contato</a></li>
           </ul>
-          <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--glass-border);">
-            <p style="font-size: 0.85rem; color: var(--text-secondary);">
-              <strong>Correspondência:</strong><br>
-              Eugenio Raulino Koerich SA Comercio e Industria<br>
-              Rua Deodoro 190 — Centro<br>
-              Florianópolis / SC — 88010-020
-            </p>
-          </div>
         </div>
       </div>
-    </section>
-
-    <!-- Localização -->
-    <section id="localizacao" aria-label="Localização" style="margin-top: 40px;">
-      <div class="section-header anim">
-        <h3>Localização</h3>
-        <p>Atendimento presencial e remoto com base no Centro de Florianópolis.</p>
-      </div>
-
-      <div class="map-card anim">
-        <iframe 
-          title="Localização Florianópolis"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3535.9321782301034!2d-48.5526923!3d-27.5973406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527362ad29fc9c1%3A0x2a9c0d4f82e1a52d!2sRua%20Deodoro%2C%20190%20-%20Centro%2C%20Florian%C3%B3polis%20-%20SC%2C%2088010-020!5e0!3m2!1spt-BR!2sbr!4v1716491234567!5m2!1spt-BR!2sbr" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </section>
-
-    <!-- Contato -->
-    <section id="contato" aria-label="Contato" style="margin-top: 40px;">
-      <div class="contact-cta anim">
-        <h3>Entre em contato</h3>
-        <p>Atendimento especializado para documentação veicular e regularização empresarial.</p>
-        <a href="mailto:acessoria@escritorioveicular.com" class="btn btn-primary" style="font-size: 1rem; padding: 18px 32px;">
-          <i class="fa-regular fa-envelope"></i> acessoria@escritorioveicular.com
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div>
-      <strong style="color: var(--text-primary); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;">Escritório Veicular</strong>
-      <br>
-      <span>Consultoria e Documentação Veicular Premium</span>
     </div>
-    <div style="text-align: right;">
-      <span>Dados oficiais: Eugenio Raulino Koerich SA</span><br>
-      <span>CNPJ: 86.184.074/0018-99</span>
+    <div class="foot-base">
+      <span>Escritório Veicular · Publicação editorial · CNPJ 86.184.074/0018-99</span>
+      <span>Florianópolis · Santa Catarina</span>
     </div>
-  </footer>
+  </div>
+</footer>
 
+<!-- ============ AVISO DE COOKIES ============ -->
+<input type="checkbox" id="aviso-ok" class="aviso-chk">
+<div class="aviso" role="region" aria-label="Aviso sobre cookies" data-testid="aviso-cookies">
+  <p>Este aviso é só informativo: o site não grava cookie, não mede audiência e não exibe publicidade. Fechar o aviso não salva nada no navegador, por isso ele pode reaparecer em outra visita. Os detalhes estão na <a href="#politicas">Política de Privacidade</a>.</p>
+  <label for="aviso-ok" data-testid="fechar-aviso-cookies">Fechar aviso</label>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const lenis = new Lenis({smoothWheel:true,lerp:0.09});
+lenis.on('scroll',ScrollTrigger.update);
+gsap.ticker.add(t=>lenis.raf(t*1000));
+gsap.ticker.lagSmoothing(0);
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    const el=document.querySelector(id);
+    if(el){e.preventDefault();lenis.scrollTo(el,{offset:-70,duration:1.4});}
+  });
+});
+
+/* Hero — revelação linha a linha com máscara */
+gsap.to('.ln>span',{y:0,duration:1.15,ease:'power4.out',stagger:0.11,delay:0.2});
+gsap.to('.hero .rv',{opacity:1,y:0,duration:1,ease:'power3.out',stagger:0.12,delay:0.75});
+
+/* Revelações por scroll */
+gsap.utils.toArray('.rv').forEach(el=>{
+  if(el.closest('.hero'))return;
+  gsap.to(el,{opacity:1,y:0,duration:1.05,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}});
+});
+
+/* Parallax das imagens */
+gsap.utils.toArray('[data-par]').forEach(img=>{
+  const f=parseFloat(img.dataset.par)*100;
+  gsap.fromTo(img,{yPercent:-f/2},{yPercent:f/2,ease:'none',scrollTrigger:{trigger:img.closest('figure'),start:'top bottom',end:'bottom top',scrub:true}});
+});
+
+/* Checklist */
+const boxes=document.querySelectorAll('#conferir input');
+const cnt=document.getElementById('cnt');
+const bar=document.getElementById('bar');
+boxes.forEach(b=>b.addEventListener('change',()=>{
+  const n=[...boxes].filter(x=>x.checked).length;
+  cnt.textContent=n;
+  bar.style.width=(n/boxes.length*100)+'%';
+}));
+</script>
 </body>
 </html>
